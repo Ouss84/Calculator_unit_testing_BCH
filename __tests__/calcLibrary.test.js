@@ -83,4 +83,12 @@ describe("test Parameters are not numbers", () => {
       expect(() => sum(a, b)).toThrow("only numbers allowed");
     }
   );
+  // same test but using a function naming
+  const testFunction = test.each(testValues);
+  testFunction(
+    "sum(%s,%s) throws an exception: only numbers allowed",
+    (a, b) => {
+      expect(() => sum(a, b)).toThrow("only numbers allowed");
+    }
+  );
 });

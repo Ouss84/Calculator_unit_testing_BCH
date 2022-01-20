@@ -28,3 +28,37 @@ describe("test sum with floats using test.each", () => {
     expect(substract(a, b)).toBeCloseTo(expected);
   });
 });
+
+describe("test sub missing parameters throw an exception", () => {
+  test("substract() throws an exception 'parameter missing'", () => {
+    expect(() => substract()).toThrow("parameter missing");
+  });
+  const testValues = [
+    [null, "parameter missing"],
+    [1, "parameter missing"],
+    ["a", "parameter missing"],
+    ["", "parameter missing"],
+  ];
+  test.each(testValues)(
+    "substract(%s) throws an exception: %s",
+    (a, expected) => {
+      expect(() => substract(a)).toThrow(expected);
+    }
+  );
+});
+
+describe("test Parameters are not numbers", () => {
+  const testValues = [
+    ["a", 1],
+    [1, "a"],
+    ["a", "b"],
+    ["", ""],
+    ["1", "2"],
+  ];
+  test.each(testValues)(
+    "substract(%s,%s) throws an exception: only numbers allowed",
+    (a, b) => {
+      expect(() => substract(a, b)).toThrow("only numbers allowed");
+    }
+  );
+});
