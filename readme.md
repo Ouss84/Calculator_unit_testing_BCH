@@ -96,3 +96,11 @@ Returns the difference of given numbers or
 - substract ('a','b') throws an exception `'only numbers allowed'`
 - substract ('','') throws an exception `'only numbers allowed'`
 - substract ('1','2') throws an exception `'only numbers allowed'`
+
+#### Divide
+
+test:
+[0,0,Number.NaN],
+[0,0,Number.POSITIVE_INFINITY],
+[-2,0,Number.NEGATIVE_INFINITY],
+[-2,0,Number.NEGATIVE_INFINITY],
